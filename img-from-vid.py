@@ -2,6 +2,7 @@ import cv2
 from ultralytics import YOLO
 from PIL import Image
 from GetLocation import get_geo_location
+from Upload import upload
 
 model = YOLO("best.pt")
 
@@ -27,6 +28,7 @@ while(True):
             if not(longitude or latitude):
                longitude=latitude=frameno
             im.save(f"frames\\{longitude}_{latitude}.jpg")
+            upload()
       frameno += 1
    else:
       break
